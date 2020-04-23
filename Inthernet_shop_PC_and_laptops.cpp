@@ -1,5 +1,4 @@
 // Inthernet_shop_PC_and_laptops.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 #include <iostream>
 #include <windows.h>
@@ -7,13 +6,48 @@
 #include <sstream>
 #include <algorithm>
 #include <iomanip>
+#include <fstream>
     
 using namespace  std;
 
+void admin() {
+    system("cls");
+    cout << "Вы вошли как администратор. " << endl;
+}
+
+void manager() {
+    system("cls");
+    cout << "Вы вошли как менеджер. " << endl;
+}
+
+void user() {
+    system("cls");
+    cout << "Вы вошли как пользователь. " << endl;
+}
 
 int main()
 {
-    
+    setlocale(LC_ALL, "Russian");
+    cout << "Вход в систему:" << endl << endl;;
+    cout << "1. Администратор (требуется пароль и логин)" << endl;
+    cout << "2. Менеджер (требуется пароль и логин)" << endl;
+    cout << "3. Пользователь" << endl;
+    cout << "4. Выход" << endl;
+    int x;
+    cin >> x;
+
+    switch (x)
+    {
+    case 1:
+        admin();
+        break;
+    case 2:
+        manager();
+        break;
+    case 3:
+        user();
+        break;
+    }
 
     return 0;
 }
