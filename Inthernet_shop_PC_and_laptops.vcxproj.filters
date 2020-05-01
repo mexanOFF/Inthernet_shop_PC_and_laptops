@@ -26,5 +26,6 @@
     <Text Include="Manager_data.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="database.txt" />
   </ItemGroup>
 </Project>

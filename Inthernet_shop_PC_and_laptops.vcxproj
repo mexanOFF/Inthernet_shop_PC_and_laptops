@@ -152,6 +152,7 @@
   <ItemGroup>
     <Text Include="Admin_data.txt" />
     <Text Include="Manager_data.txt" />
+    <Text Include="database.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
