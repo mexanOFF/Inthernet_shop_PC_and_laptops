@@ -61,8 +61,8 @@ void menu_first_level() {
     cout << "2. Менеджер (требуется пароль и логин)" << endl;
     cout << "3. Пользователь" << endl;
     cout << "4. Выход (нажмите любую клавишу)" << endl;
-    int x;
-    cin >> x;
+    int x; 
+    cin >> x; //Запрашиваем пользовательский ввод
         switch (x)
     {
     case 1:
@@ -77,10 +77,8 @@ void menu_first_level() {
      case 4:
          system("cls");
          cout << "---Работа программы успешно завершена---" << endl;
-         
-        break;
-        
-    default:
+                 break;
+            default:
         system("cls");
         cout << "---Работа программы успешно завершена---" << endl;
     }
@@ -88,14 +86,14 @@ void menu_first_level() {
 }
 void admin() {
     system("cls");
-        FILE* adminka_ptr;
+        FILE* adminka_ptr; //Указазываем на файл
     adminka_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\Admin_data.txt", "r");
         fscanf(adminka_ptr, "%s", first); // Получили логин в First 
     fscanf(adminka_ptr, "%s", second); // Получли пароль в Second
     fclose(adminka_ptr); // Закрывает файл txt
         char chec_pass[100];
     cout << "---Введите пароль---" << endl;
-    cin >> chec_pass;
+    cin >> chec_pass; // Запрос ввода
         if (strcmp(second, chec_pass) == 0)
     {
         system("cls");
@@ -142,7 +140,7 @@ void menu_second_lavel_admin()
 }
 void manager() {
     system("cls");
-    FILE* manag_ptr;
+    FILE* manag_ptr; // Указываем на файл
     manag_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\Manager_data.txt", "r");
     fscanf(manag_ptr, "%s", first_m); // Получили логин в First_m
     fscanf(manag_ptr, "%s", second_m); // Получли пароль в Second_m
@@ -203,7 +201,7 @@ void user()
         << setw(5) << setfill(' ') << right << "Цена" << " "
         << setw(8) << setfill(' ') << right << "KPI" << endl << endl;
 
-    while (!feof(base_ptr))
+    while (!feof(base_ptr)) // Пока в файле что-то есть - выводим
 
     {
         fscanf(base_ptr, "%s", database[counter].type);
@@ -220,9 +218,9 @@ void user()
             << setw(5) << setfill(' ') << left << database[counter].ram << " "
             << setw(7) << setfill(' ') << right << database[counter].helper.price << " "
             << setw(5) << setfill(' ') << right << database[counter].helper.request << endl;
-        counter++;
+        counter++; // Счётчик
     }
-    counter = 0;
+    counter = 0; // Обнуляем счётчик
     cout << endl << "Все данные успешно отображены" << endl<<endl;
     cout << "1. Смена пользователя" << endl;
     int x;
@@ -552,7 +550,7 @@ void case_3() {
         cin >> inp_1;
         cout << "Введите новый пароль для администратора" << endl;
         cin >> inp_2;
-        strcpy( first, inp_1);
+        strcpy( first, inp_1); 
         strcpy(second, inp_2);
         FILE* adminka_ptr;
         adminka_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\Admin_data.txt", "w");
