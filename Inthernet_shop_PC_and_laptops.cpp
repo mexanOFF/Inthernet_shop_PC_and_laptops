@@ -24,6 +24,7 @@ void case_1();
 void case_2();
 void case_3();
 void move_admin();
+void case_1_mng();
 
 struct neasted 
 {
@@ -76,6 +77,7 @@ void menu_first_level() {
      case 4:
          system("cls");
          cout << "---Работа программы успешно завершена---" << endl;
+         
         break;
         
     default:
@@ -174,7 +176,7 @@ void menu_second_lavel_manager()
     switch (r)
     {
     case 1:
-        case_1();
+        case_1_mng();
         break;
     case 2:
         case_2();
@@ -308,6 +310,138 @@ void case_1() {
         cout << "---Редактирование модели №" << edt_ind << " успешно инициализировано---" << endl << endl;
         cout << "Выберите параметр для редактирования" <<endl<< endl << "1. Тип" << endl << "2. Процессор" << endl << "3. Видеокарта" << endl
         << "4. Оперативная память" << endl << "5. Цена" << endl << "6. KPI" << endl << endl;
+        size_t edt_prm;
+        cin >> edt_prm;
+        switch (edt_prm)
+        {
+        case 1:
+            cout << "Введите тип усторйства" << endl;
+            char inp_1[15];
+            cin >> inp_1;
+            strcpy(database[edt_ind].type, inp_1);
+            break;
+        case 2:
+            cout << "Введите процессор" << endl;
+            char inp_2[15];
+            cin >> inp_2;
+            strcpy(database[edt_ind].processor, inp_2);
+            break;
+        case 3:
+            cout << "Введите видеокарту" << endl;
+            char inp_3[15];
+            cin >> inp_3;
+            break;
+        case 4:
+            cout << "Введите объём оперативной памяти" << endl;
+            char inp_4[15];
+            cin >> inp_4;
+            strcpy(database[edt_ind].ram, inp_4);
+            break;
+        case 5:
+            cout << "Введите цену" << endl;
+            char inp_5[15];
+            cin >> inp_5;
+            strcpy(database[edt_ind].helper.price, inp_5);
+            break;
+        case 6:
+            cout << "Введите цену" << endl;
+            char inp_6[15];
+            cin >> inp_6;
+            strcpy(database[edt_ind].helper.request, inp_6);
+            break;
+        }
+        FILE* base_ptr_2;
+        base_ptr_2 = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
+        for (size_t i = 0; i < counter; ++i)
+        {
+            fprintf(base_ptr_2, "\n %s %s %s %s %s %s", database[i].type, database[i].processor, database[i].video_card,
+                database[i].ram, database[i].helper.price, database[i].helper.request);
+        }
+        fclose(base_ptr_2);
+        cout << endl << "---Редактирование модели успешно завершено---" << endl;
+        break;
+    }
+    counter = 0;
+    case_1();
+}
+void case_1_mng() {
+
+    FILE* base_ptr;
+    base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "r");
+
+    cout << setw(3) << setfill(' ') << left << '№' << " "
+        << setw(8) << setfill(' ') << left << "Тип" << " "
+        << setw(17) << setfill(' ') << left << "Процессор" << " "
+        << setw(10) << setfill(' ') << left << "Видеокарта" << " "
+        << setw(5) << setfill(' ') << left << "Память" << " "
+        << setw(5) << setfill(' ') << right << "Цена" << " "
+        << setw(8) << setfill(' ') << right << "KPI" << endl << endl;
+
+    while (!feof(base_ptr))
+
+    {
+        fscanf(base_ptr, "%s", database[counter].type);
+        fscanf(base_ptr, "%s", database[counter].processor);
+        fscanf(base_ptr, "%s", database[counter].video_card);
+        fscanf(base_ptr, "%s", database[counter].ram);
+        fscanf(base_ptr, "%s", database[counter].helper.price);
+        fscanf(base_ptr, "%s", database[counter].helper.request);
+
+        cout << setw(3) << setfill(' ') << left << counter << " "
+            << setw(8) << setfill(' ') << left << database[counter].type << " "
+            << setw(17) << setfill(' ') << left << database[counter].processor << " "
+            << setw(10) << setfill(' ') << left << database[counter].video_card << " "
+            << setw(5) << setfill(' ') << left << database[counter].ram << " "
+            << setw(7) << setfill(' ') << right << database[counter].helper.price << " "
+            << setw(5) << setfill(' ') << right << database[counter].helper.request << endl;
+        counter++;
+    }
+    fclose(base_ptr);
+
+    cout << endl << "---Все модели отображены---" << endl << endl;
+    cout << "1. Возврат в основное меню." << endl;
+    cout << "2. Удаление модели." << endl;
+    cout << "3. Редактирование параметров модели." << endl;
+    int f;
+    cin >> f;
+    switch (f)
+    {
+    case 1:
+        system("cls");
+        counter = 0;
+        menu_second_lavel_manager();
+        break;
+    case 2:
+        cout << "---Введите номер позиции которую хотите удалить---" << endl;
+        size_t del_idx;
+        cin >> del_idx;
+
+        for (size_t i = del_idx + 1; i < counter; ++i)
+        {
+            database[i - 1] = database[i];
+        }
+        --counter;
+        FILE* base_ptr;
+        base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
+        for (size_t i = 0; i < counter; ++i)
+        {
+            fprintf(base_ptr, "\n %s %s %s %s %s %s", database[i].type, database[i].processor, database[i].video_card,
+                database[i].ram, database[i].helper.price, database[i].helper.request);
+        }
+        fclose(base_ptr);
+        system("cls");
+        cout << "---Позиция №" << del_idx << " была успешно удалена---" << endl << endl;
+        counter = 0;
+        menu_second_lavel_admin();
+        break;
+    case 3:
+        cout << "---Введите номер позиции которую хотите отредактировать---" << endl;
+        size_t edt_ind;
+        cin >> edt_ind;
+        system("cls");
+        cout << "---Редактирование модели №" << edt_ind << " успешно инициализировано---" << endl << endl;
+        cout << "Выберите параметр для редактирования" << endl << endl << "1. Тип" << endl << "2. Процессор" << endl << "3. Видеокарта" << endl
+            << "4. Оперативная память" << endl << "5. Цена" << endl << "6. KPI" << endl << endl;
         size_t edt_prm;
         cin >> edt_prm;
         switch (edt_prm)
