@@ -87,7 +87,7 @@ void menu_first_level() {
 void admin() {
     system("cls");
         FILE* adminka_ptr; //Указазываем на файл
-    adminka_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\Admin_data.txt", "r");
+    adminka_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\Admin_data.txt", "r");
         fscanf(adminka_ptr, "%s", first); // Получили логин в First 
     fscanf(adminka_ptr, "%s", second); // Получли пароль в Second
     fclose(adminka_ptr); // Закрывает файл txt
@@ -141,7 +141,7 @@ void menu_second_lavel_admin()
 void manager() {
     system("cls");
     FILE* manag_ptr; // Указываем на файл
-    manag_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\Manager_data.txt", "r");
+    manag_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\Manager_data.txt", "r");
     fscanf(manag_ptr, "%s", first_m); // Получили логин в First_m
     fscanf(manag_ptr, "%s", second_m); // Получли пароль в Second_m
     fclose(manag_ptr); // Закрывает файл txt
@@ -191,7 +191,7 @@ void user()
 {
     system("cls");
     FILE* base_ptr;
-    base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "r");
+    base_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "r");
 
     cout << setw(3) << setfill(' ') << left << '№' << " "
         << setw(8) << setfill(' ') << left << "Тип" << " "
@@ -233,7 +233,7 @@ void user()
 void case_1() {
 
     FILE* base_ptr;
-    base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "r");
+    base_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "r");
 
     cout << setw(3) << setfill(' ') << left << '№' << " "
         << setw(8) << setfill(' ') << left << "Тип" << " "
@@ -288,7 +288,7 @@ void case_1() {
         }
         --counter;
         FILE* base_ptr;
-        base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
+        base_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
         for (size_t i = 0; i <counter ; ++i)
         {
             fprintf(base_ptr, "\n %s %s %s %s %s %s", database[i].type, database[i].processor, database[i].video_card, 
@@ -349,7 +349,7 @@ void case_1() {
             break;
         }
         FILE* base_ptr_2;
-        base_ptr_2 = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
+        base_ptr_2 = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
         for (size_t i = 0; i < counter; ++i)
         {
             fprintf(base_ptr_2, "\n %s %s %s %s %s %s", database[i].type, database[i].processor, database[i].video_card,
@@ -365,7 +365,7 @@ void case_1() {
 void case_1_mng() {
 
     FILE* base_ptr;
-    base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "r");
+    base_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "r");
 
     cout << setw(3) << setfill(' ') << left << '№' << " "
         << setw(8) << setfill(' ') << left << "Тип" << " "
@@ -420,7 +420,7 @@ void case_1_mng() {
         }
         --counter;
         FILE* base_ptr;
-        base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
+        base_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
         for (size_t i = 0; i < counter; ++i)
         {
             fprintf(base_ptr, "\n %s %s %s %s %s %s", database[i].type, database[i].processor, database[i].video_card,
@@ -481,7 +481,7 @@ void case_1_mng() {
             break;
         }
         FILE* base_ptr_2;
-        base_ptr_2 = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
+        base_ptr_2 = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "w");
         for (size_t i = 0; i < counter; ++i)
         {
             fprintf(base_ptr_2, "\n %s %s %s %s %s %s", database[i].type, database[i].processor, database[i].video_card,
@@ -498,7 +498,7 @@ void case_2() {
     char q[20], w[20], e[20], r[20], t[8], y[2];
     setlocale(LC_ALL, "Russian");
     FILE* base_ptr;
-    base_ptr = fopen("C:\\Users\\Admin\\Desktop\\My projects\\Inthernet_shop_PC_and_laptops\\database.txt", "a");
+    base_ptr = fopen("C:\\Users\\22082020\\source\\repos\\Inthernet_shop_PC_and_laptops\\database.txt", "a");
     cout<<"Тип: " ;
     cin >> q;
     cout<<"Процессор: ";
